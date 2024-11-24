@@ -17,6 +17,7 @@ class CircularQueue {
     int deq();
     bool isFull();
     bool isEmpty();
+    void print();
 };
 
 bool CircularQueue::isFull() {
@@ -55,14 +56,31 @@ int CircularQueue::deq() {
     return d;
 }
 
+void CircularQueue::print() {
+    if(isEmpty()) {
+        cout<<"Queue Underflow!"<<endl;
+        return;
+    }
+    int i = front;
+    cout<<"Queue Elements:";
+    while(true) {
+        cout<<arr[i]<<" ";
+        if(i == rear) break;
+        i = (i + 1) % MAX;
+    }
+    cout<<endl;
+}
+
 int main() {
     CircularQueue cq;
     cout<<cq.isEmpty()<<endl;
     cq.enq(10);
     cq.enq(20);
     cq.enq(30);
+    cq.print();
     cout<<cq.deq()<<endl;
     cout<<cq.deq()<<endl;
+    cq.print();
     cout<<cq.deq()<<endl;
     cout<<cq.isEmpty()<<endl;
     return 0;
