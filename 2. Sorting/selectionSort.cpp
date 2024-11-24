@@ -17,9 +17,7 @@ void selectionSort(int arr[], int len) {
             }
         }
         if(minIdx != i) {
-            int temp = arr[i];
-            arr[i] = arr[minIdx];
-            arr[minIdx] = temp;
+            swap(arr[minIdx], arr[i]);
         }
     }
 }
