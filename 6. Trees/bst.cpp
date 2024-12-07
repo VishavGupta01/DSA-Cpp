@@ -65,8 +65,8 @@ void postOrder(Node* root) {
 bool searchInBSTrec(Node* root, int key) { // TC -> O(n)
     if(root == NULL) return false;
     if(root->data == key) return true;
-    else if (root->data > key) return searchInBST(root->left,key);
-    else return searchInBST(root->right,key);
+    else if (root->data > key) return searchInBSTrec(root->left,key);
+    else return searchInBSTrec(root->right,key);
 }
 
 bool searchInBSTitr(Node* root, int key) {
